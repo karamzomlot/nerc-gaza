@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# National Conference for Economic Recovery
 
-## Getting Started
+## Overview
+The **National Conference for Economic Recovery** is an official national digital platform designed to lead the early phase of economic recovery and support a structured transition toward sustainable economic development.  
+The platform brings together policymakers, economic institutions, private sector partners, entrepreneurs, and development stakeholders to transform strategic visions into actionable initiatives with measurable impact.
 
-First, run the development server:
+## Vision
+To lead economic recovery efforts and establish the foundations for sustainable economic development through coordinated national action and effective partnerships.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Mission
+To provide a unified national framework that supports economic recovery by:
+- Launching executable initiatives and projects
+- Enabling partnerships and investment opportunities
+- Supporting entrepreneurship and small and medium enterprises (SMEs)
+- Ensuring follow-up mechanisms that turn ideas into real outcomes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Strategic Objectives
+- Restore and stimulate national economic activity
+- Create sustainable employment opportunities
+- Support and empower SMEs and entrepreneurs
+- Enhance economic resilience and social stability
+- Encourage investment and reduce financial risks
+- Accelerate digital transformation and the knowledge economy
+- Strengthen international partnerships and benefit from global best practices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Features
+- **Conference Information**: Background, importance, objectives, and expected outcomes  
+- **Conference Tracks**: Economic policies, financing and risk guarantees, business incubators, digital transformation, SME empowerment, and international cooperation  
+- **Programs & Initiatives**: National recovery programs, investment tools, and funding mechanisms  
+- **Project Pipeline**: Ready-to-implement projects (Pipeline Projects)  
+- **Events & Activities**: Sessions, workshops, speaker schedules, and agendas  
+- **Registration System**: Participant and entrepreneur registration  
+- **Partnerships**: Governmental, private sector, and international partners  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Conference Outputs
+- National Economic Recovery Document
+- Launch of the National Economic Incubator
+- Project Pipeline for implementation
+- Memorandums of Understanding and agreements
+- Financing and risk guarantee tools
+- Monitoring and implementation committees
 
-## Learn More
+## Target Audience
+- Government institutions and policymakers  
+- Private sector and investors  
+- Entrepreneurs and startup founders  
+- Small and medium enterprises  
+- Development organizations and international partners  
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies (example – adjust based on your repo)
+- Frontend: HTML, CSS, JavaScript
+- Backend: (Specify if applicable)
+- Database: (Specify if applicable)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<!-- ## Getting Started
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/karamzomlot/nerc-gaza.git -->
