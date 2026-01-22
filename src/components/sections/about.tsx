@@ -9,7 +9,7 @@ const About = () => {
       <div className='mx-auto px-4 lg:px-16 py-12 sm:py-20'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 items-center'>
           {/* Content – Right */}
-          <div className='lg:col-span-6' dir='rtl'>
+          <div className='lg:col-span-6'>
             <div className='max-w-2xl lg:ms-auto text-right'>
               <h2 className='text-[20px] sm:text-[22px] font-extrabold text-[#1E6C68]'>خلفية المؤتمر وأهميته</h2>
 
@@ -35,9 +35,7 @@ const About = () => {
                   'تعزيز الصمود والاستقرار الاقتصادي والاجتماعي.'
                 ].map((item, index) => (
                   <div key={index} className='flex items-center gap-3'>
-                    <span className='mt-1 grid place-items-center size-6 rounded-full bg-primary text-white'>
-                      <Check size={14} />
-                    </span>
+                    <Check size={14} className='size-6 rounded-full bg-primary text-white p-1' />
                     <p className='text-[14px] sm:text-[15px] text-slate-700'>{item}</p>
                   </div>
                 ))}
