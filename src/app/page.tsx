@@ -1,4 +1,5 @@
 import About from '@/components/sections/about';
+import ConferenceEvents from '@/components/sections/conference-events';
 import ConferenceOutputs from '@/components/sections/conference-outputs';
 import ConferenceTracks from '@/components/sections/conference-track';
 import Hero from '@/components/sections/hero';
@@ -12,6 +13,7 @@ export default function Home() {
       <StrategicFrameworkSection />
       <ConferenceTracks />
       <ConferenceOutputs />
+      <ConferenceEvents />
     </>
   );
 }
