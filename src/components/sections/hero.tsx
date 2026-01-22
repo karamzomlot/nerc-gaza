@@ -5,7 +5,7 @@ const Hero = () => {
     <header
       className='h-screen bg-cover bg-center flex items-center justify-center flex-col px-4 text-center text-white'
       style={{
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/header-bg.jpg")'
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/header-bg.jpg")'
       }}
     >
       <span className='px-7 py-3 rounded-[50px] flex items-center justify-center  text-white text-[16px] font-medium  bg-white/10 backdrop-blur-lg mb-10'>
