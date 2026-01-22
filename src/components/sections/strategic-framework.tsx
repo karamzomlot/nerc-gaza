@@ -34,7 +34,7 @@ export default function StrategicFrameworkSection() {
       {/* Background image */}
       <div className='absolute inset-0 -z-10'>
         <Image src='/assets/sec-bg.jpg' alt='خلفية السيكشن' fill priority className='object-cover' />
-        <div className='absolute inset-0 bg-[#0F3B3B]/70' />
+        <div className='absolute inset-0 bg-primary/70' />
       </div>
 
       <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20'>
