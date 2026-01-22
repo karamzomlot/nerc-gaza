@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/* Left side (Actions) */}
         <div className='flex items-center gap-3 pl-4'>
-          <Button className='w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 hover:bg-white/10 transition'>
+          <Button className='w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 hover:bg-white/10 transition' aria-label='بحث'>
             <Search />
           </Button>
           {/* Register Button */}
