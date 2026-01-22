@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import Navbar from '@/components/layout/navbar';
+import Footer from '@/components/layout/footer';
 
 const pingAR = localFont({
   src: [
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${pingAR.className} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
