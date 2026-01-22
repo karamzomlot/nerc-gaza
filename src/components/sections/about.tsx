@@ -56,7 +56,15 @@ const About = () => {
           {/* Image – Left */}
           <div className='lg:col-span-6'>
             <div className='relative overflow-hidden rounded-4xl shadow-[0_18px_45px_rgba(0,0,0,0.12)]'>
-              <Image src='/assets/about-img.jpg' alt='خلفية المؤتمر' width={900} height={800} className='w-full object-cover' priority />
+              <Image
+                src='/assets/about-img.jpg'
+                alt='خلفية المؤتمر'
+                width={900}
+                height={800}
+                className='w-full object-cover'
+                sizes='(max-width: 1024px) 100vw, 50vw'
+                quality={75}
+              />
             </div>
           </div>
         </div>
