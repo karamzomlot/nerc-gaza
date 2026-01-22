@@ -37,7 +37,7 @@ export default function StrategicFrameworkSection() {
         <div className='absolute inset-0 bg-[#0F3B3B]/70' />
       </div>
 
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14'>
+      <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20'>
         {/* Header */}
         <div className='text-center' dir='rtl'>
           <h2 className='text-[22px] sm:text-[26px] font-extrabold text-white'>
