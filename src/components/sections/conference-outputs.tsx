@@ -34,8 +34,8 @@ export default function ConferenceOutputs() {
                 alt='مخرجات المؤتمر'
                 fill
                 className='object-cover rounded-s-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)]'
-                sizes='(max-width: 1280px) 55vw, 50vw'
-                priority
+                sizes='(max-width: 1280px) 100vw, 50vw'
+                quality={75}
               />
             </div>
 
