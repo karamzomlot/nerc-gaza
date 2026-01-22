@@ -35,7 +35,7 @@ const About = () => {
                   'تعزيز الصمود والاستقرار الاقتصادي والاجتماعي.'
                 ].map((item, index) => (
                   <div key={index} className='flex items-center gap-3'>
-                    <span className='mt-1 grid place-items-center size-6 rounded-full bg-[#0F2F2D] text-white'>
+                    <span className='mt-1 grid place-items-center size-6 rounded-full bg-primary text-white'>
                       <Check size={14} />
                     </span>
                     <p className='text-[14px] sm:text-[15px] text-slate-700'>{item}</p>
@@ -47,7 +47,7 @@ const About = () => {
               <div className='mt-8 flex'>
                 <Link
                   href='#register'
-                  className='inline-flex items-center justify-center h-11 px-10 rounded-full bg-secondary/90 text-white font-bold text-[14px] shadow-[0_10px_25px_rgba(183,200,74,0.35)] hover:brightness-95 active:brightness-90 transition'
+                  className='inline-flex items-center justify-center h-11 px-10 rounded-full  bg-primary text-primary-foreground shadow-[0_10px_25px_rgba(183,200,74,0.35)] font-bold text-[14px] hover:brightness-95 active:brightness-90 transition'
                 >
                   سجّل الآن
                 </Link>
@@ -58,14 +58,7 @@ const About = () => {
           {/* Image – Left */}
           <div className='lg:col-span-6'>
             <div className='relative overflow-hidden rounded-4xl shadow-[0_18px_45px_rgba(0,0,0,0.12)]'>
-              <Image
-                src='/assets/about-img.jpg'
-                alt='خلفية المؤتمر'
-                width={900}
-                height={800}
-                className='w-full object-cover'
-                priority
-              />
+              <Image src='/assets/about-img.jpg' alt='خلفية المؤتمر' width={900} height={800} className='w-full object-cover' priority />
             </div>
           </div>
         </div>
