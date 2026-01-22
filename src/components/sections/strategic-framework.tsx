@@ -28,7 +28,7 @@ const cards: Card[] = [
   }
 ];
 
-export default function StrategicFrameworkSection() {
+export default function StrategicFramework() {
   return (
     <section className='relative w-full overflow-hidden'>
       {/* Background image */}
