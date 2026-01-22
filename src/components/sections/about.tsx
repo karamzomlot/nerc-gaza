@@ -11,9 +11,9 @@ const About = () => {
           {/* Content – Right */}
           <div className='lg:col-span-6' dir='rtl'>
             <div className='max-w-2xl lg:ms-auto text-right'>
-              <h3 className='text-[20px] sm:text-[22px] font-extrabold text-[#1E6C68]'>خلفية المؤتمر وأهميته</h3>
+              <h2 className='text-[20px] sm:text-[22px] font-extrabold text-[#1E6C68]'>خلفية المؤتمر وأهميته</h2>
 
-              <h4 className='mt-2 text-[18px] sm:text-[19px] font-bold text-[#0F2F2D]'>من التعافي الاقتصادي المبكر إلى التنمية المستدامة...</h4>
+              <h3 className='mt-2 text-[18px] sm:text-[19px] font-bold text-[#0F2F2D]'>من التعافي الاقتصادي المبكر إلى التنمية المستدامة...</h3>
 
               <p className='mt-4 text-[14px] sm:text-[15px] leading-7 text-slate-600'>
                 يأتي المؤتمر الوطني للتعافي الاقتصادي كمنصة وطنية رسمية رفيعة المستوى، تهدف إلى قيادة مرحلة التعـافي الاقتصادي المبكر والانتقال المنهجي نحو
