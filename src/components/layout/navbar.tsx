@@ -41,7 +41,7 @@ const Navbar = () => {
           </Button>
           {/* Register Button */}
           <Button
-            className='h-10 px-6 rounded-full bg-secondary text-secondary-foreground text-sm font-semibold hover:opacity-90 transition
+            className='h-10 px-6 rounded-full bg-secondary/90 text-secondary-foreground text-sm font-semibold hover:opacity-90 transition
               '
           >
             سجل كمشارك

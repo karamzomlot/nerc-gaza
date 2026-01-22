@@ -47,7 +47,7 @@ const About = () => {
               <div className='mt-8 flex'>
                 <Link
                   href='#register'
-                  className='inline-flex items-center justify-center h-11 px-10 rounded-full bg-secondary text-white font-bold text-[14px] shadow-[0_10px_25px_rgba(183,200,74,0.35)] hover:brightness-95 active:brightness-90 transition'
+                  className='inline-flex items-center justify-center h-11 px-10 rounded-full bg-secondary/90 text-white font-bold text-[14px] shadow-[0_10px_25px_rgba(183,200,74,0.35)] hover:brightness-95 active:brightness-90 transition'
                 >
                   سجّل الآن
                 </Link>
