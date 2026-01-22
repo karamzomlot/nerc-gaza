@@ -34,7 +34,7 @@ const About = () => {
                   'خلق فرص عمل مستدامة.',
                   'تعزيز الصمود والاستقرار الاقتصادي والاجتماعي.'
                 ].map((item, index) => (
-                  <div key={index} className='flex items-start gap-3'>
+                  <div key={index} className='flex items-center gap-3'>
                     <span className='mt-1 grid place-items-center size-6 rounded-full bg-[#0F2F2D] text-white'>
                       <Check size={14} />
                     </span>
