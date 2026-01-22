@@ -8,7 +8,7 @@ import StrategicFramework from '@/components/sections/strategic-framework';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Hero />
       <About />
       <StrategicFramework />
@@ -16,6 +16,6 @@ export default function Home() {
       <ConferenceOutputs />
       <ConferenceEvents />
       <Partners />
-    </>
+    </main>
   );
 }
