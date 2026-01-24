@@ -6,13 +6,29 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className='absolute top-0 inset-x-0 z-50 bg-black/12 backdrop-blur-md border-b border-amber-50/20 py-2 px-4'>
+    <nav className='absolute top-0 inset-x-0 z-50 bg-black/12 backdrop-blur-md border-b border-amber-50/20 py-2 sm:px-4'>
       <div className='rounded-full flex items-center justify-between'>
         {/* Right side (Logos) */}
         <div className='flex items-center gap-4 ps-4'>
-          <Image src='/assets/nerc-logo.svg' alt='NERC Logo' width={65} height={67} className='' />
+          <Image
+            src='/assets/nerc-logo.svg'
+            alt='NERC Logo'
+            width={65}
+            height={67}
+            sizes='(max-width: 640px) 40px, (max-width: 1024px) 55px, 65px'
+            className='w-10 sm:w-12 md:w-16.5 h-auto'
+          />
+
           <Separator orientation='vertical' className='w-px bg-[#D9D9D9]/40 h-11' />
-          <Image src='/assets/mone-logo.svg' alt='MONE LOGO' className='' width={81} height={65} />
+
+          <Image
+            src='/assets/mone-logo.svg'
+            alt='MONE LOGO'
+            width={81}
+            height={65}
+            sizes='(max-width: 640px) 48px, (max-width: 1024px) 65px, 81px'
+            className='w-12 sm:w-16 md:w-20.25 h-auto'
+          />
         </div>
 
         {/* Center (Links) */}

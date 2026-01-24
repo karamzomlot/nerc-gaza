@@ -41,7 +41,7 @@ export default function StrategicFramework() {
         {/* Header */}
         <div className='text-center' dir='rtl'>
           <h2 className='text-[22px] sm:text-[26px] font-extrabold text-white'>
-            الإطار <span className='text-secondary'>الاستراتيجي</span> للمؤتمر
+            الإطار الاستراتيجي <span className='text-secondary'>للمؤتمر</span>
           </h2>
           <p className='mt-2 text-[13px] sm:text-[14px] text-white/80'>الرؤية - الرسالة - الأهداف الاستراتيجية</p>
         </div>
