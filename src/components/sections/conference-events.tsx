@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import { Button } from '../ui/button';
 
 const days = [
   { id: 1, label: 'اليوم الأول 22 يناير 2026', active: true },
-  { id: 2, label: 'اليوم الثاني 23 يناير 2026', active: false },
-  { id: 3, label: 'اليوم الثالث 24 يناير 2026', active: false }
+  { id: 2, label: 'اليوم الثاني 23 يناير 2026', active: false }
 ];
 
 const rows = [
@@ -57,9 +57,13 @@ export default function ConferenceEvents() {
           <div className='grid grid-cols-1 lg:grid-cols-12 items-center gap-4 border-b border-white/10 pb-4'>
             <div className='lg:col-span-9 lg:col-start-1 flex flex-wrap gap-x-40 gap-y-4  justify-start lg:justify-start'>
               {days.map((d) => (
-                <button key={d.id} className={['text-sm font-bold transition', d.active ? 'text-secondary' : 'text-white/90 hover:text-white'].join(' ')}>
+                <Button
+                  variant={'link'}
+                  key={d.id}
+                  className={['text-sm font-bold transition hover:no-underline', d.active ? 'text-secondary' : 'text-white/90 hover:text-white'].join(' ')}
+                >
                   {d.label}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
