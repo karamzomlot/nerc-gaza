@@ -1,7 +1,6 @@
 import About from '@/components/sections/about';
 import ConferenceEvents from '@/components/sections/conference-events';
-import ConferenceOutputs from '@/components/sections/conference-outputs';
-import ConferenceTracks from '@/components/sections/conference-track';
+import Tracks from '@/components/sections/tracks';
 import Hero from '@/components/sections/hero';
 import Partners from '@/components/sections/partners';
 import StrategicFramework from '@/components/sections/strategic-framework';
@@ -12,8 +11,8 @@ export default function Home() {
       <Hero />
       <About />
       <StrategicFramework />
-      <ConferenceTracks />
-      <ConferenceOutputs />
+      <Tracks />
+      {/* <ConferenceOutputs /> */}
       <ConferenceEvents />
       <Partners />
     </main>
