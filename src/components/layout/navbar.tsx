@@ -1,5 +1,4 @@
 import { Separator } from '@radix-ui/react-separator';
-import { Search } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
@@ -60,15 +59,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Left side (Actions) */}
         <div className='flex items-center gap-3 pl-4'>
-          <Button
-            className='w-10 h-10 rounded-full border border-white/40 flex items-center justify-center bg-white/10 hover:bg-white/10 transition'
-            aria-label='بحث'
-          >
-            <Search />
-          </Button>
-          {/* Register Button */}
           <Button
             className='h-10 px-6 rounded-full bg-secondary/90 text-secondary-foreground text-sm font-semibold hover:opacity-90 transition
               '
