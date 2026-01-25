@@ -33,10 +33,10 @@ const Navbar = () => {
 
         {/* Center (Links) */}
         <ul className='hidden lg:flex items-center gap-8 text-white text-sm font-medium'>
-          {NAV_LINKS.map((e) => (
-            <li key={e.href}>
-              <Link href={e.href} className='cursor-pointer hover:opacity-80'>
-                {e.label}
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className='cursor-pointer hover:opacity-80'>
+                {l.label}
               </Link>
             </li>
           ))}

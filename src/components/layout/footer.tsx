@@ -1,33 +1,13 @@
 // app/components/SiteFooter.tsx
 // Next.js + Tailwind footer matching your design (RTL, bg image, nav links, center logos, divider + copyright)
 
+import { NAV_LINKS } from '@/constants';
 import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
-
-const navLinks = [
-  { label: 'عن المؤتمر', href: '#about' },
-  { label: 'محاور المؤتمر', href: '#themes' },
-  { label: 'مخرجات المؤتمر', href: '#outputs' },
-  { label: 'المتحدثون', href: '#speakers' },
-  { label: 'الشركاء', href: '#partners' }
-];
 
 export default function Footer() {
   return (
     <footer dir='rtl' className='relative w-full overflow-hidden'>
-      {/* Background image */}
-      {/* <Image
-        src="/assets/sec-bg.jpg" // ✅ ضع مسار صورة الخلفية عندك
-        alt="Footer background"
-        fill
-        priority
-        className="object-cover"
-        sizes="100vw"
-      /> */}
-
-      {/* Optional overlay (if your bg needs more contrast) */}
-      {/* <div className="absolute inset-0 bg-primary/35" /> */}
-
       <Image src='/assets/sec-bg.jpg' alt='فعاليات المؤتمر' fill priority className='object-cover' sizes='100vw' />
       {/* Overlay */}
       <div className='absolute inset-0 bg-primary/70' />
@@ -35,7 +15,7 @@ export default function Footer() {
       <div className='relative mx-auto w-full px-4 lg:px-16 py-8 sm:py-10'>
         {/* Top nav */}
         <nav className='flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-white/85 text-sm font-semibold'>
-          {navLinks.map((l) => (
+          {NAV_LINKS.map((l) => (
             <a key={l.href} href={l.href} className='hover:text-white transition w-full text-center sm:w-fit sm:text-start'>
               {l.label}
             </a>
