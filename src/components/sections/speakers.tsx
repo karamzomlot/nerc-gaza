@@ -27,9 +27,9 @@ const rows = [
   }
 ];
 
-export default function ConferenceEvents() {
+export default function Speakers() {
   return (
-    <section dir='rtl' className='relative w-full overflow-hidden'>
+    <section className='relative w-full overflow-hidden' id='speakers'>
       {/* Background image */}
       <Image src='/assets/sec-bg.jpg' alt='فعاليات المؤتمر' fill priority className='object-cover' sizes='100vw' />
       {/* Overlay */}
