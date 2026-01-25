@@ -4,6 +4,7 @@ import Tracks from '@/components/sections/tracks';
 import Hero from '@/components/sections/hero';
 import Partners from '@/components/sections/partners';
 import StrategicFramework from '@/components/sections/strategic-framework';
+import Outputs from '@/components/sections/outputs';
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
       <About />
       <StrategicFramework />
       <Tracks />
-      {/* <ConferenceOutputs /> */}
+      <Outputs />
       <Speakers />
       <Partners />
     </main>

@@ -13,7 +13,7 @@ const outputs = [
 
 export default function Outputs() {
   return (
-    <section className='w-full bg-[#d9d9d9]/15'>
+    <section className='w-full bg-[#d9d9d9]/15' id='outputs'>
       <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20'>
         <div className='relative bg-white rounded-[32px] overflow-hidden lg:overflow-visible lg:w-8/12 mr-auto'>
           {/* <div className='relative w-10/12 lg:w-full h-55 sm:h-70 md:h-80 lg:hidden'>
