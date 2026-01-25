@@ -24,7 +24,7 @@ const partners: Partner[] = [
 
 export default function Partners() {
   return (
-    <section dir='rtl' className='w-full bg-white py-10 sm:py-14'>
+    <section className='w-full bg-white py-10 sm:py-14' id='partners'>
       <div className='mx-auto w-full px-4 lg:px-16'>
         {/* Title */}
         <div className='text-center'>

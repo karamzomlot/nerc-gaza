@@ -2,6 +2,7 @@ import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import { NAV_LINKS } from '@/constants';
 
 const Navbar = () => {
   return (
@@ -32,37 +33,18 @@ const Navbar = () => {
 
         {/* Center (Links) */}
         <ul className='hidden lg:flex items-center gap-8 text-white text-sm font-medium'>
-          <li>
-            <Link href={''} className='cursor-pointer hover:opacity-80'>
-              عن المؤتمر
-            </Link>
-          </li>
-          <li>
-            <Link href={''} className='cursor-pointer hover:opacity-80'>
-              محاور المؤتمر
-            </Link>
-          </li>
-          <li>
-            <Link href={''} className='cursor-pointer hover:opacity-80'>
-              مخرجات المؤتمر
-            </Link>
-          </li>
-          <li>
-            <Link href={''} className='cursor-pointer hover:opacity-80'>
-              المتحدثون
-            </Link>
-          </li>
-          <li>
-            <Link href={''} className='cursor-pointer hover:opacity-80'>
-              الشركاء
-            </Link>
-          </li>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className='cursor-pointer hover:opacity-80'>
+                {l.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <div className='flex items-center gap-3 pl-4'>
           <Button
-            className='h-10 px-6 rounded-full bg-secondary/90 text-secondary-foreground text-sm font-semibold hover:opacity-90 transition
-              '
+            className='h-10 px-6 rounded-full bg-secondary/90 text-secondary-foreground text-sm font-semibold hover:opacity-90 transition'
           >
             سجل كمشارك
           </Button>

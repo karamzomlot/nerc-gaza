@@ -47,9 +47,9 @@ const tracks: Track[] = [
   }
 ];
 
-export default function ConferenceTracks() {
+export default function Tracks() {
   return (
-    <section className='w-full bg-white'>
+    <section className='w-full bg-white' id='tracks'>
       <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20' dir='rtl'>
         {/* Header */}
         <div className='text-center'>

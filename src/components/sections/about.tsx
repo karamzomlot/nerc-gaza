@@ -1,11 +1,10 @@
 import { Check } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 const About = () => {
   return (
-    <section className='w-full bg-white'>
+    <section className='w-full bg-white' id='about'>
       <div className='mx-auto px-4 lg:px-16 py-12 sm:py-20'>
         <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 items-center'>
           {/* Content – Right */}

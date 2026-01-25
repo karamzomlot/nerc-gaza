@@ -11,7 +11,7 @@ const outputs = [
   'تشكيل لجان متابعة وتنفيذ.'
 ];
 
-export default function ConferenceOutputs() {
+export default function Outputs() {
   return (
     <section className='w-full bg-[#d9d9d9]/15'>
       <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20'>
