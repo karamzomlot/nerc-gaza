@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import AgendaTable from './agenda-table';
-import { cn } from '@/lib/utils';
 
 export type Day = {
   id: string;
