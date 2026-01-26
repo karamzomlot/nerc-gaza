@@ -35,7 +35,7 @@ export default function SupportNeeded() {
         rules={{ required: 'يرجى اختيار نوع الاحتياج' }}
         render={({ field, fieldState }) => (
           <>
-            <RadioGroup value={field.value} onValueChange={field.onChange} className='grid grid-cols-2 md:grid-cols-5 gap-4'>
+            <RadioGroup value={field.value} onValueChange={field.onChange} className='grid grid-cols-2 md:grid-cols-5 gap-4' dir='rtl'>
               {needs.map((item) => {
                 const Icon = item.icon;
                 return (
