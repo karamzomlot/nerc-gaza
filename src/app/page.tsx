@@ -5,17 +5,23 @@ import Hero from '@/components/sections/hero';
 import Partners from '@/components/sections/partners';
 import StrategicFramework from '@/components/sections/strategic-framework';
 import Outputs from '@/components/sections/outputs';
+import Navbar from '@/components/layout/navbar';
+import Footer from '@/components/layout/footer';
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <StrategicFramework />
-      <Tracks />
-      <Outputs />
-      <Speakers />
-      <Partners />
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <StrategicFramework />
+        <Tracks />
+        <Outputs />
+        <Speakers />
+        <Partners />
+      </main>
+      <Footer />
+    </>
   );
 }

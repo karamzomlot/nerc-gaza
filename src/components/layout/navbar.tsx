@@ -1,6 +1,5 @@
 import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
-import { Button } from '../ui/button';
 import Link from 'next/link';
 import { NAV_LINKS } from '@/constants';
 
@@ -43,11 +42,12 @@ const Navbar = () => {
         </ul>
 
         <div className='flex items-center gap-3 pl-4'>
-          <Button
-            className='h-10 px-6 rounded-full bg-secondary/90 text-secondary-foreground text-sm font-semibold hover:opacity-90 transition'
+          <Link
+            href='/register'
+            className='inline-flex items-center justify-center h-11 px-5 rounded-full bg-secondary text-white font-bold text-[14px] hover:brightness-95 active:brightness-90 transition'
           >
-            سجل كمشارك
-          </Button>
+            سجّل كمشارك
+          </Link>
         </div>
       </div>
     </nav>
