@@ -53,11 +53,10 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر القطاع...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='food'>أغذية ومشروبات</SelectItem>
-                    <SelectItem value='retail'>تجارة (بيع/شراء)</SelectItem>
-                    <SelectItem value='services'>خدمات</SelectItem>
-                    <SelectItem value='handmade'>صناعات/حِرف</SelectItem>
-                    <SelectItem value='other'>أخرى</SelectItem>
+                    <SelectItem value='food'>غذائي</SelectItem>
+                    <SelectItem value='crafts'>حرفي</SelectItem>
+                    <SelectItem value='trade'>تجاري</SelectItem>
+                    <SelectItem value='services'>خدماتي</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -132,11 +131,10 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='none'>لا يوجد</SelectItem>
-                    <SelectItem value='lt_500'>أقل من 500</SelectItem>
-                    <SelectItem value='500_1000'>500 - 1000</SelectItem>
-                    <SelectItem value='1000_2000'>1000 - 2000</SelectItem>
-                    <SelectItem value='gt_2000'>أكثر من 2000</SelectItem>
+                    <SelectItem value='no_fixed_income'>لا يوجد دخل ثابت</SelectItem>
+                    <SelectItem value='lt_1000'>أقل من 1000 شيكل</SelectItem>
+                    <SelectItem value='1000_2000'>1000 - 2000 شيكل</SelectItem>
+                    <SelectItem value='gt_2000'>أكثر من 2000 شيكل</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -154,13 +152,7 @@ export default function BusinessInfo() {
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor={field.name}>وصف النشاط والوضع الحالي *</FieldLabel>
-                  <Textarea
-                    {...field}
-                    id={field.name}
-                    placeholder='اشرح لنا طبيعة عملك باختصار...'
-                    className='min-h-30'
-                    aria-invalid={fieldState.invalid}
-                  />
+                  <Textarea {...field} id={field.name} placeholder='اشرح لنا طبيعة عملك باختصار...' className='min-h-30' aria-invalid={fieldState.invalid} />
                   {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
                 </Field>
               )}
