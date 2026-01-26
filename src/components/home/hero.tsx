@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -23,11 +24,15 @@ const Hero = () => {
         </p>
 
         <div className='flex justify-center items-center gap-2 flex-wrap'>
-          <Button className='w-full sm:w-fit rounded-full px-11 py-6'>سجّل مشروعك</Button>
+          <Link href='/register' passHref>
+            <Button className='w-full sm:w-fit rounded-full px-11 py-6'>سجّل مشروعك</Button>
+          </Link>
 
-          <Button className='w-full sm:w-fit rounded-full px-11 py-6 border border-white bg-white/10 backdrop-blur-lg hover:bg-white/10'>
-            قدّم فكرة مبتكرة
-          </Button>
+          <Link href='/register' passHref>
+            <Button className='w-full sm:w-fit rounded-full px-11 py-6 border border-white bg-white/10 backdrop-blur-lg hover:bg-white/10'>
+              قدّم فكرة مبتكرة
+            </Button>
+          </Link>
         </div>
       </div>
     </header>
