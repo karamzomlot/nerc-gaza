@@ -122,6 +122,8 @@ export default function PersonalInfo() {
                   <SelectContent>
                     <SelectItem value='single'>أعزب</SelectItem>
                     <SelectItem value='married'>متزوج</SelectItem>
+                    <SelectItem value='widowed'>أرمل</SelectItem>
+                    <SelectItem value='divorced'>مطلق</SelectItem>
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -164,8 +166,10 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر الحالة الصحية' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='good'>سليم</SelectItem>
-                    <SelectItem value='special'>احتياج خاص</SelectItem>
+                    <SelectItem value='good'>جيدة</SelectItem>
+                    <SelectItem value='average'>متوسطة</SelectItem>
+                    <SelectItem value='chronic_disease'>مرض مزمن</SelectItem>
+                    <SelectItem value='disability'>إعاقة</SelectItem>
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -187,7 +191,6 @@ export default function PersonalInfo() {
                   <SelectContent>
                     <SelectItem value='displaced'>نازح</SelectItem>
                     <SelectItem value='not_displaced'>غير نازح</SelectItem>
-                    <SelectItem value='returned'>عاد إلى مكانه</SelectItem>
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
