@@ -16,17 +16,6 @@ export default function Outputs() {
     <section className='w-full bg-[#d9d9d9]/15' id='outputs'>
       <div className='mx-auto w-full px-4 lg:px-16 py-12 sm:py-20'>
         <div className='relative bg-white rounded-[32px] overflow-hidden lg:overflow-visible lg:w-8/12 mr-auto'>
-          {/* <div className='relative w-10/12 lg:w-full h-55 sm:h-70 md:h-80 lg:hidden'>
-            <Image
-              src='/assets/economic-collaboration.jpg'
-              alt='مخرجات المؤتمر'
-              fill
-              priority
-              className='object-cover rounded-t-[32px]'
-              sizes='(max-width: 1024px) 100vw'
-            />
-          </div> */}
-
           <div className='px-6 sm:px-10 md:px-12 lg:px-16 py-10 sm:py-12 lg:ps-20'>
             <div className='hidden lg:block absolute top-1/2 left-full -translate-y-1/2 -translate-x-12 w-145 h-119'>
               <Image
@@ -62,7 +51,7 @@ export default function Outputs() {
 
             <div className='mt-8 flex justify-start'>
               <Link
-                href='#'
+                href='/register'
                 className='inline-flex items-center justify-center h-11 px-10 rounded-full bg-secondary text-white font-bold text-[14px] shadow-[0_10px_25px_rgba(183,200,74,0.35)] hover:brightness-95 active:brightness-90 transition'
               >
                 قدم فكرة مبتكرة
