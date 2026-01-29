@@ -15,7 +15,7 @@ export default function BusinessInfo() {
   const { control } = useFormContext<RegistrationFormValues>();
 
   return (
-    <Card dir='rtl' className='rounded-[30px] py-10 md:px-7 shadow-none border-none gap-y-5'>
+    <Card dir='rtl' className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
       <CardHeader>
         <CardTitle className='flex items-center gap-2'>
           <BriefcaseBusiness className='w-5 h-5 mb-1.5 text-secondary' />

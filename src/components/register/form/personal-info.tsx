@@ -14,7 +14,7 @@ export default function PersonalInfo() {
   const { control } = useFormContext<RegistrationFormValues>();
 
   return (
-    <Card className='rounded-[30px] py-10 md:px-7 shadow-none border-none gap-y-5'>
+    <Card className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
       <CardHeader>
         <CardTitle className='flex items-center gap-2 '>
           <CircleUserRound className='w-5 h-5 mb-1.5 text-secondary' />
