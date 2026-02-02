@@ -8,11 +8,11 @@ type LogoItem = {
 };
 
 const logos: LogoItem[] = [
-  { src: '/assets/partner-1.png', alt: 'Logo 1', cover: false },
-  { src: '/assets/partner-2.png', alt: 'Logo 2', cover: false },
-  { src: '/assets/partner-3.png', alt: 'Logo 3', cover: true },
-  { src: '/assets/partner-4.png', alt: 'Logo 4', cover: false },
-  { src: '/assets/partner-5.jpg', alt: 'Logo 5', cover: true }
+  { src: '/assets/partner-1.png', alt: 'Logo 1' },
+  { src: '/assets/partner-2.png', alt: 'Logo 2' },
+  { src: '/assets/partner-3.png', alt: 'Logo 3' },
+  { src: '/assets/partner-4.png', alt: 'Logo 4' },
+  { src: '/assets/partner-5.jpg', alt: 'Logo 5' }
 ];
 
 export default function TopPartners() {
@@ -30,7 +30,7 @@ export default function TopPartners() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                className={cn(item.cover ? 'object-cover' : 'object-contain', logos.length % 2 === 0 && idx === logos.length && 'justify-self-start')}
+                className={cn('object-contain', logos.length % 2 === 0 && idx === logos.length && 'justify-self-start')}
                 sizes='(max-width: 768px) 100px, 140px'
                 priority={idx < 3}
               />
