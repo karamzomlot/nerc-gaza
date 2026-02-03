@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, useFormContext } from 'react-hook-form';
-import type { RegistrationFormValues } from '.';
+import type { LookupRow, RegistrationFormValues } from '.';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,14 @@ import { BriefcaseBusiness } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
 
-export default function BusinessInfo() {
+export default function BusinessInfo({
+  data
+}: {
+  data: {
+    workSectorOptions: LookupRow[];
+    avgSalaryOptions: LookupRow[];
+  };
+}) {
   const { control } = useFormContext<RegistrationFormValues>();
 
   return (
@@ -53,10 +60,11 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر القطاع...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='food'>غذائي</SelectItem>
-                    <SelectItem value='crafts'>حرفي</SelectItem>
-                    <SelectItem value='trade'>تجاري</SelectItem>
-                    <SelectItem value='services'>خدماتي</SelectItem>
+                    {data.workSectorOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
 
@@ -131,10 +139,11 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='no_fixed_income'>لا يوجد دخل ثابت</SelectItem>
-                    <SelectItem value='lt_1000'>أقل من 1000 شيكل</SelectItem>
-                    <SelectItem value='1000_2000'>1000 - 2000 شيكل</SelectItem>
-                    <SelectItem value='gt_2000'>أكثر من 2000 شيكل</SelectItem>
+                    {data.avgSalaryOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
 

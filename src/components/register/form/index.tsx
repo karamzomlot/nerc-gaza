@@ -101,7 +101,7 @@ export default function RegistrationForm({ lookups }: IProps) {
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full max-w-230 mx-auto py-8 space-y-7'>
         <PersonalInfo data={personalInfoData} />
         <ApplicantType data={projectOptions} />
-        <BusinessInfo />
+        <BusinessInfo data={businessInfoData} />
         <SupportNeeded />
         <SocialPriorities />
         <Declaration />
