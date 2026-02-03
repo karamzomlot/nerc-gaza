@@ -62,3 +62,5 @@ export const FormSchema = z.object({
 });
 
 export type FormSchemaValues = z.infer<typeof FormSchema>;
+
+export type FormSchemaInput = z.input<typeof FormSchema>; // ✅ نوع قيم الفورم (قبل التحويل)

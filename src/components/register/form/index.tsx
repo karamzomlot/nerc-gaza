@@ -10,8 +10,8 @@ import SupportNeeded from './support-needed';
 import SocialPriorities from './social-priorities';
 import Declaration from './declaration';
 import { Button } from '@/components/ui/button';
-import { Send } from 'lucide-react';
-import { FormSchema, FormSchemaValues } from './form.schema';
+import { Loader, Send } from 'lucide-react';
+import { FormSchema, FormSchemaInput } from './form.schema';
 
 export type LookupRow = { value: number; description: string; groupName: string };
 
@@ -43,7 +43,7 @@ export default function RegistrationForm({ lookups }: IProps) {
     avgSalaryOptions
   };
 
-  const form = useForm<FormSchemaValues>({
+  const form = useForm<FormSchemaInput>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       fullName: '',
@@ -58,8 +58,17 @@ export default function RegistrationForm({ lookups }: IProps) {
     mode: 'onChange'
   });
 
-  const onSubmit = (values: FormSchemaValues) => {
-    console.log(values);
+  const onSubmit = async (values: FormSchemaInput) => {
+    const dto = FormSchema.parse(values); // ✅ جاهز للباك-إند
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dto)
+    });
+
+    if (!res.ok) throw new Error(await res.text());
+
+    form.reset();
   };
 
   return (
@@ -71,9 +80,9 @@ export default function RegistrationForm({ lookups }: IProps) {
         <SupportNeeded data={supportOptions} />
         <SocialPriorities data={prioritiesOptions} />
         <Declaration />
-        <Button className='w-full py-4 h-auto rounded-[20px] text-lg font-bold flex gap-3 items-center'>
+        <Button className='w-full py-4 h-auto rounded-[20px] text-lg font-bold flex gap-3 items-center' disabled={form.formState.isSubmitting}>
           <span>تأكيد وإرسال الطلب</span>
-          <Send className='size-5' />
+          {form.formState.isSubmitting ? <Loader className='size-5 animate-spin' /> : <Send className='size-5' />}
         </Button>
       </form>
     </FormProvider>
