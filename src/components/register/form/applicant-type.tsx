@@ -4,21 +4,20 @@ import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { RegistrationFormValues } from '.';
+import type { LookupRow, RegistrationFormValues } from '.';
 
-import { User, Store, Home, Rocket, ShoppingBag, Layers } from 'lucide-react';
+import { User, Store, Home, Rocket, ShoppingBag, Layers, LucideIcon } from 'lucide-react';
 
-const options = [
-  { value: 'mobile_vendor', label: 'بائع متجول', icon: User },
-  { value: 'vendor', label: 'كشك / بسطة', icon: ShoppingBag },
-  { value: 'shop_owner', label: 'صاحب محل', icon: Store },
-  { value: 'home_project', label: 'مشروع منزلي', icon: Home },
-  { value: 'startup', label: 'مشروع ناشئ', icon: Rocket }
-];
+const projectTypeIcon: Record<number, LucideIcon> = {
+  18: User,
+  19: ShoppingBag,
+  20: Store,
+  21: Home,
+  22: Rocket
+};
 
-export default function ApplicantType() {
+export default function ApplicantType({ data }: { data: LookupRow[] }) {
   const { control } = useFormContext<RegistrationFormValues>();
-
   return (
     <Card className='rounded-[30px] py-10 px-7 shadow-none border-none gap-y-5'>
       <CardHeader>
@@ -35,12 +34,12 @@ export default function ApplicantType() {
         render={({ field, fieldState }) => (
           <>
             <RadioGroup dir='rtl' value={field.value} onValueChange={field.onChange} className='grid grid-cols-2 md:grid-cols-5 gap-4'>
-              {options.map((item) => {
-                const Icon = item.icon;
+              {data.map((item) => {
+                const Icon = projectTypeIcon[item.value];
 
                 return (
                   <label key={item.value} className='cursor-pointer'>
-                    <RadioGroupItem value={item.value} className='peer sr-only' />
+                    <RadioGroupItem value={item.value.toString()} className='peer sr-only' />
 
                     <div
                       className={cn(
@@ -53,7 +52,7 @@ export default function ApplicantType() {
                       )}
                     >
                       <Icon className='w-6 h-6 opacity-90' />
-                      <span className='text-sm font-bold'>{item.label}</span>
+                      <span className='text-sm font-bold'>{item.description}</span>
                     </div>
                   </label>
                 );

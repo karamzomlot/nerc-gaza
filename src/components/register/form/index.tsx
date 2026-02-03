@@ -34,7 +34,37 @@ export type RegistrationFormValues = {
   socialPriorities: string;
   declaration: boolean;
 };
-export default function RegistrationForm() {
+
+export type LookupRow = { value: number; description: string; groupName: string };
+
+type IProps = {
+  lookups: LookupRow[];
+};
+export default function RegistrationForm({ lookups }: IProps) {
+  const governorateOptions = lookups.filter((o) => o.groupName === 'Governorate');
+  const areaOptions = lookups.filter((o) => o.groupName === 'Area');
+  const maritalOptions = lookups.filter((o) => o.groupName === 'MaritalStatus');
+  const healthOptions = lookups.filter((o) => o.groupName === 'HealthStatus');
+  const displacementOptions = lookups.filter((o) => o.groupName === 'DisplacementSituation');
+  const projectOptions = lookups.filter((o) => o.groupName === 'ProjectType');
+  const workSectorOptions = lookups.filter((o) => o.groupName === 'WorkSector');
+  const avgSalaryOptions = lookups.filter((o) => o.groupName === 'WorkAvgSalary');
+  const supportOptions = lookups.filter((o) => o.groupName === 'SupportType');
+  const prioritiesOptions = lookups.filter((o) => o.groupName === 'SocialPriorities');
+
+  const personalInfoData = {
+    governorateOptions,
+    areaOptions,
+    maritalOptions,
+    healthOptions,
+    displacementOptions
+  };
+
+  const businessInfoData = {
+    workSectorOptions,
+    avgSalaryOptions
+  };
+
   const form = useForm<RegistrationFormValues>({
     defaultValues: {
       fullName: '',
@@ -70,7 +100,7 @@ export default function RegistrationForm() {
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full max-w-230 mx-auto py-8 space-y-7'>
         <PersonalInfo data={personalInfoData} />
-        <ApplicantType />
+        <ApplicantType data={projectOptions} />
         <BusinessInfo />
         <SupportNeeded />
         <SocialPriorities />
