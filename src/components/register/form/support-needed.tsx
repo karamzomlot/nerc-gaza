@@ -29,7 +29,7 @@ export default function SupportNeeded({ data }: { data: LookupRow[] }) {
 
       <Controller
         control={control}
-        name='supportNeed'
+        name='supportType'
         rules={{ required: 'يرجى اختيار نوع الاحتياج' }}
         render={({ field, fieldState }) => (
           <>
@@ -68,7 +68,7 @@ export default function SupportNeeded({ data }: { data: LookupRow[] }) {
 
         <Controller
           control={control}
-          name='hadPreviousSupport'
+          name='receivedPreviousSupport'
           rules={{ required: 'يرجى اختيار نعم أو لا' }}
           render={({ field, fieldState }) => (
             <>
@@ -79,12 +79,12 @@ export default function SupportNeeded({ data }: { data: LookupRow[] }) {
                 dir='rtl'
               >
                 <label className='flex items-center gap-3 cursor-pointer'>
-                  <RadioGroupItem value='yes' />
+                  <RadioGroupItem value='1' />
                   <span className='text-sm'>نعم</span>
                 </label>
 
                 <label className='flex items-center gap-3 cursor-pointer'>
-                  <RadioGroupItem value='no' />
+                  <RadioGroupItem value='0' />
                   <span className='text-sm'>لا</span>
                 </label>
               </RadioGroup>

@@ -35,7 +35,7 @@ export default function BusinessInfo({
           {/* اسم النشاط */}
           <Controller
             control={control}
-            name='businessName'
+            name='workName'
             rules={{ required: 'اسم النشاط مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -76,7 +76,7 @@ export default function BusinessInfo({
           {/* مكان النشاط الحالي */}
           <Controller
             control={control}
-            name='currentWorkLocation'
+            name='workArea'
             rules={{ required: 'مكان النشاط الحالي مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -90,7 +90,7 @@ export default function BusinessInfo({
           {/* مدة النشاط */}
           <Controller
             control={control}
-            name='activityDuration'
+            name='workDuration'
             rules={{ required: 'مدة النشاط مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -104,7 +104,7 @@ export default function BusinessInfo({
           {/* عدد العاملين */}
           <Controller
             control={control}
-            name='workersCount'
+            name='workNumberStuff'
             rules={{
               required: 'عدد العاملين مطلوب',
               validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
@@ -128,7 +128,7 @@ export default function BusinessInfo({
           {/* متوسط الدخل الشهري */}
           <Controller
             control={control}
-            name='avgMonthlyIncome'
+            name='workAvgSalary'
             rules={{ required: 'متوسط الدخل الشهري مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -156,7 +156,7 @@ export default function BusinessInfo({
           <div className='md:col-span-3'>
             <Controller
               control={control}
-              name='activityDescription'
+              name='workDescription'
               rules={{ required: 'وصف النشاط مطلوب' }}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>

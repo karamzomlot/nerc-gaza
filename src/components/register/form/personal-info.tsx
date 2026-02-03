@@ -62,7 +62,7 @@ export default function PersonalInfo({
 
           <Controller
             control={control}
-            name='mobile'
+            name='phone1'
             rules={{ required: 'رقم الجوال مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -123,7 +123,7 @@ export default function PersonalInfo({
 
           <Controller
             control={control}
-            name='socialStatus'
+            name='maritalStatus'
             rules={{ required: 'الحالة الاجتماعية مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
@@ -147,7 +147,7 @@ export default function PersonalInfo({
 
           <Controller
             control={control}
-            name='familyCount'
+            name='familyMembers'
             rules={{
               required: 'عدد أفراد الأسرة مطلوب',
               validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
@@ -194,7 +194,7 @@ export default function PersonalInfo({
 
           <Controller
             control={control}
-            name='displacementStatus'
+            name='displacementSituation'
             rules={{ required: 'حالة النزوح مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>

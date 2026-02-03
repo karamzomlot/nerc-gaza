@@ -29,7 +29,7 @@ export default function ApplicantType({ data }: { data: LookupRow[] }) {
 
       <Controller
         control={control}
-        name='applicantType'
+        name='projectType'
         rules={{ required: 'يرجى اختيار تصنيف مقدم الطلب' }}
         render={({ field, fieldState }) => (
           <>

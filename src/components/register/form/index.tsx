@@ -14,25 +14,25 @@ import { Send } from 'lucide-react';
 export type RegistrationFormValues = {
   fullName: string;
   idNumber: string;
-  mobile: string;
+  phone1: string;
   governorate: string;
   area: string;
-  socialStatus: string;
+  maritalStatus: string;
   healthStatus: string;
-  displacementStatus: string;
-  familyCount: number | '';
-  applicantType: string;
-  businessName: string;
+  displacementSituation: string;
+  familyMembers: number | '';
+  projectType: string;
+  workName: string;
   workSector: string;
-  currentWorkLocation: string;
-  activityDuration: string;
-  workersCount: number | '';
-  avgMonthlyIncome: string;
-  activityDescription: string;
-  supportNeed: string;
-  hadPreviousSupport: boolean | null;
+  workArea: string;
+  workDuration: string;
+  workNumberStuff: number | '';
+  workAvgSalary: string;
+  workDescription: string;
+  supportType: string;
+  receivedPreviousSupport: boolean | null;
   socialPriorities: string;
-  declaration: boolean;
+  isDeclarationApproved: boolean;
 };
 
 export type LookupRow = { value: number; description: string; groupName: string };
@@ -69,25 +69,25 @@ export default function RegistrationForm({ lookups }: IProps) {
     defaultValues: {
       fullName: '',
       idNumber: '',
-      mobile: '',
+      phone1: '',
       governorate: '',
       area: '',
-      socialStatus: '',
+      maritalStatus: '',
       healthStatus: '',
-      displacementStatus: '',
-      familyCount: '',
-      applicantType: '',
-      businessName: '',
+      displacementSituation: '',
+      familyMembers: '',
+      projectType: '',
+      workName: '',
       workSector: '',
-      currentWorkLocation: '',
-      activityDuration: '',
-      workersCount: '',
-      avgMonthlyIncome: '',
-      activityDescription: '',
-      supportNeed: '',
-      hadPreviousSupport: null,
+      workArea: '',
+      workDuration: '',
+      workNumberStuff: '',
+      workAvgSalary: '',
+      workDescription: '',
+      supportType: '',
+      receivedPreviousSupport: null,
       socialPriorities: '',
-      declaration: false
+      isDeclarationApproved: false
     },
     mode: 'onChange'
   });
