@@ -4,9 +4,10 @@ import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { LookupRow, RegistrationFormValues } from '.';
+import type { LookupRow } from '.';
 
 import { User, Store, Home, Rocket, ShoppingBag, Layers, LucideIcon } from 'lucide-react';
+import { FormSchemaValues } from './form.schema';
 
 const projectTypeIcon: Record<number, LucideIcon> = {
   18: User,
@@ -17,7 +18,7 @@ const projectTypeIcon: Record<number, LucideIcon> = {
 };
 
 export default function ApplicantType({ data }: { data: LookupRow[] }) {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
   return (
     <Card className='rounded-[30px] py-10 px-7 shadow-none border-none gap-y-5'>
       <CardHeader className='px-0'>
@@ -30,7 +31,6 @@ export default function ApplicantType({ data }: { data: LookupRow[] }) {
       <Controller
         control={control}
         name='projectType'
-        rules={{ required: 'يرجى اختيار تصنيف مقدم الطلب' }}
         render={({ field, fieldState }) => (
           <>
             <RadioGroup dir='rtl' value={field.value} onValueChange={field.onChange} className='grid grid-cols-2 md:grid-cols-5 gap-4'>

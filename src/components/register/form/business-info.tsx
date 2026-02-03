@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, useFormContext } from 'react-hook-form';
-import type { LookupRow, RegistrationFormValues } from '.';
+import type { LookupRow } from '.';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BriefcaseBusiness } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
+import { FormSchemaValues } from './form.schema';
 
 export default function BusinessInfo({
   data
@@ -19,7 +20,7 @@ export default function BusinessInfo({
     avgSalaryOptions: LookupRow[];
   };
 }) {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
 
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
@@ -36,7 +37,6 @@ export default function BusinessInfo({
           <Controller
             control={control}
             name='workName'
-            rules={{ required: 'اسم النشاط مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>اسم النشاط *</FieldLabel>
@@ -50,7 +50,6 @@ export default function BusinessInfo({
           <Controller
             control={control}
             name='workSector'
-            rules={{ required: 'قطاع العمل مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>قطاع العمل *</FieldLabel>
@@ -77,7 +76,6 @@ export default function BusinessInfo({
           <Controller
             control={control}
             name='workArea'
-            rules={{ required: 'مكان النشاط الحالي مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>مكان النشاط الحالي *</FieldLabel>
@@ -91,7 +89,6 @@ export default function BusinessInfo({
           <Controller
             control={control}
             name='workDuration'
-            rules={{ required: 'مدة النشاط مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>مدة النشاط *</FieldLabel>
@@ -101,14 +98,9 @@ export default function BusinessInfo({
             )}
           />
 
-          {/* عدد العاملين */}
           <Controller
             control={control}
             name='workNumberStuff'
-            rules={{
-              required: 'عدد العاملين مطلوب',
-              validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
-            }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>عدد العاملين *</FieldLabel>
@@ -116,7 +108,7 @@ export default function BusinessInfo({
                   id={field.name}
                   type='number'
                   placeholder='0'
-                  value={field.value === '' ? '' : String(field.value)}
+                  value={field.value}
                   onChange={(e) => field.onChange(e.target.value === '' ? '' : Number(e.target.value))}
                   aria-invalid={fieldState.invalid}
                 />
@@ -129,7 +121,6 @@ export default function BusinessInfo({
           <Controller
             control={control}
             name='workAvgSalary'
-            rules={{ required: 'متوسط الدخل الشهري مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>متوسط الدخل الشهري *</FieldLabel>
@@ -157,7 +148,6 @@ export default function BusinessInfo({
             <Controller
               control={control}
               name='workDescription'
-              rules={{ required: 'وصف النشاط مطلوب' }}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor={field.name}>وصف النشاط والوضع الحالي *</FieldLabel>

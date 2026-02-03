@@ -4,36 +4,14 @@ import PersonalInfo from './personal-info';
 import ApplicantType from './applicant-type';
 
 import { useForm, FormProvider } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import BusinessInfo from './business-info';
 import SupportNeeded from './support-needed';
 import SocialPriorities from './social-priorities';
 import Declaration from './declaration';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
-
-export type RegistrationFormValues = {
-  fullName: string;
-  idNumber: string;
-  phone1: string;
-  governorate: string;
-  area: string;
-  maritalStatus: string;
-  healthStatus: string;
-  displacementSituation: string;
-  familyMembers: number | '';
-  projectType: string;
-  workName: string;
-  workSector: string;
-  workArea: string;
-  workDuration: string;
-  workNumberStuff: number | '';
-  workAvgSalary: string;
-  workDescription: string;
-  supportType: string;
-  receivedPreviousSupport: boolean | null;
-  socialPriorities: string;
-  isDeclarationApproved: boolean;
-};
+import { FormSchema, FormSchemaValues } from './form.schema';
 
 export type LookupRow = { value: number; description: string; groupName: string };
 
@@ -65,34 +43,22 @@ export default function RegistrationForm({ lookups }: IProps) {
     avgSalaryOptions
   };
 
-  const form = useForm<RegistrationFormValues>({
+  const form = useForm<FormSchemaValues>({
+    resolver: zodResolver(FormSchema),
     defaultValues: {
       fullName: '',
       idNumber: '',
       phone1: '',
-      governorate: '',
-      area: '',
-      maritalStatus: '',
-      healthStatus: '',
-      displacementSituation: '',
-      familyMembers: '',
-      projectType: '',
+      familyMembers: 0,
       workName: '',
-      workSector: '',
       workArea: '',
       workDuration: '',
-      workNumberStuff: '',
-      workAvgSalary: '',
-      workDescription: '',
-      supportType: '',
-      receivedPreviousSupport: null,
-      socialPriorities: '',
-      isDeclarationApproved: false
+      workDescription: ''
     },
     mode: 'onChange'
   });
 
-  const onSubmit = (values: RegistrationFormValues) => {
+  const onSubmit = (values: FormSchemaValues) => {
     console.log(values);
   };
 

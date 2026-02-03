@@ -4,9 +4,10 @@ import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { LookupRow, RegistrationFormValues } from '.';
+import type { LookupRow } from '.';
 
 import { TrendingUp, GraduationCap, Wrench, Megaphone, Sprout, Handshake, LucideIcon } from 'lucide-react';
+import { FormSchemaValues } from './form.schema';
 
 const supportTypeIcon: Record<number, LucideIcon> = {
   31: TrendingUp,
@@ -17,7 +18,7 @@ const supportTypeIcon: Record<number, LucideIcon> = {
 };
 
 export default function SupportNeeded({ data }: { data: LookupRow[] }) {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 px-7 shadow-none border-none'>
       <CardHeader className='px-0'>
@@ -30,7 +31,6 @@ export default function SupportNeeded({ data }: { data: LookupRow[] }) {
       <Controller
         control={control}
         name='supportType'
-        rules={{ required: 'يرجى اختيار نوع الاحتياج' }}
         render={({ field, fieldState }) => (
           <>
             <RadioGroup value={field.value} onValueChange={field.onChange} className='grid grid-cols-2 md:grid-cols-5 gap-4' dir='rtl'>
@@ -69,15 +69,9 @@ export default function SupportNeeded({ data }: { data: LookupRow[] }) {
         <Controller
           control={control}
           name='receivedPreviousSupport'
-          rules={{ required: 'يرجى اختيار نعم أو لا' }}
           render={({ field, fieldState }) => (
             <>
-              <RadioGroup
-                value={field.value === null ? undefined : field.value ? 'yes' : 'no'}
-                onValueChange={(v) => field.onChange(v === 'yes')}
-                className='flex flex-col gap-3'
-                dir='rtl'
-              >
+              <RadioGroup value={field.value} onValueChange={field.onChange} className='flex flex-col gap-3' dir='rtl'>
                 <label className='flex items-center gap-3 cursor-pointer'>
                   <RadioGroupItem value='1' />
                   <span className='text-sm'>نعم</span>

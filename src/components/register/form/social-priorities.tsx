@@ -4,9 +4,10 @@ import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { LookupRow, RegistrationFormValues } from '.';
+import type { LookupRow } from '.';
 
 import { GraduationCap, Handshake, HandCoins, UserRound, Accessibility, LucideIcon } from 'lucide-react';
+import { FormSchemaValues } from './form.schema';
 
 const prioritiesIcon: Record<number, LucideIcon> = {
   36: HandCoins,
@@ -15,7 +16,7 @@ const prioritiesIcon: Record<number, LucideIcon> = {
   39: GraduationCap
 };
 export default function SocialPriorities({ data }: { data: LookupRow[] }) {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 px-7 shadow-none border-none'>
       <CardHeader className='px-0'>
@@ -28,10 +29,14 @@ export default function SocialPriorities({ data }: { data: LookupRow[] }) {
       <Controller
         control={control}
         name='socialPriorities'
-        rules={{ required: 'يرجى اختيار الأولوية الإجتماعية' }}
         render={({ field, fieldState }) => (
           <>
-            <RadioGroup value={field.value} onValueChange={field.onChange} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4' dir='rtl'>
+            <RadioGroup
+              value={field.value}
+              onValueChange={field.onChange}
+              className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'
+              dir='rtl'
+            >
               {data.map((item) => {
                 const Icon = prioritiesIcon[item.value];
                 return (

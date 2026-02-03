@@ -8,7 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CircleUserRound } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
-import { LookupRow, RegistrationFormValues } from '.';
+import { LookupRow } from '.';
+import { FormSchemaValues } from './form.schema';
 
 export default function PersonalInfo({
   data
@@ -21,7 +22,7 @@ export default function PersonalInfo({
     displacementOptions: LookupRow[];
   };
 }) {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
 
   return (
     <Card className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
@@ -37,7 +38,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='fullName'
-            rules={{ required: 'الاسم مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>الاسم الكامل *</FieldLabel>
@@ -50,11 +50,10 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='idNumber'
-            rules={{ required: 'رقم الهوية مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>رقم الهوية *</FieldLabel>
-                <Input {...field} id={field.name} inputMode='numeric' placeholder='رقم الهوية' aria-invalid={fieldState.invalid} />
+                <Input {...field} id={field.name} inputMode='numeric' placeholder='رقم الهوية' aria-invalid={fieldState.invalid} autoComplete='international-number' />
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </Field>
             )}
@@ -63,7 +62,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='phone1'
-            rules={{ required: 'رقم الجوال مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>رقم الجوال *</FieldLabel>
@@ -76,7 +74,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='governorate'
-            rules={{ required: 'المحافظة مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>المحافظة *</FieldLabel>
@@ -100,7 +97,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='area'
-            rules={{ required: 'المنطقة مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>المنطقة *</FieldLabel>
@@ -124,7 +120,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='maritalStatus'
-            rules={{ required: 'الحالة الاجتماعية مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>الحالة الاجتماعية *</FieldLabel>
@@ -148,10 +143,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='familyMembers'
-            rules={{
-              required: 'عدد أفراد الأسرة مطلوب',
-              validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
-            }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>عدد أفراد الأسرة *</FieldLabel>
@@ -159,7 +150,7 @@ export default function PersonalInfo({
                   id={field.name}
                   type='number'
                   placeholder='عدد أفراد الأسرة'
-                  value={field.value === '' ? '' : String(field.value)}
+                  value={field.value}
                   onChange={(e) => field.onChange(e.target.value === '' ? '' : Number(e.target.value))}
                   aria-invalid={fieldState.invalid}
                 />
@@ -171,7 +162,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='healthStatus'
-            rules={{ required: 'الحالة الصحية مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>الحالة الصحية *</FieldLabel>
@@ -195,7 +185,6 @@ export default function PersonalInfo({
           <Controller
             control={control}
             name='displacementSituation'
-            rules={{ required: 'حالة النزوح مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>حالة النزوح *</FieldLabel>
