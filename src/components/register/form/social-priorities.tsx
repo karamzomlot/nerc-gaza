@@ -16,8 +16,6 @@ const prioritiesIcon: Record<number, LucideIcon> = {
 };
 export default function SocialPriorities({ data }: { data: LookupRow[] }) {
   const { control } = useFormContext<RegistrationFormValues>();
-  console.log(data);
-
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 px-7 shadow-none border-none'>
       <CardHeader>
