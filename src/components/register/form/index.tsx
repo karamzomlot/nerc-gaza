@@ -103,7 +103,7 @@ export default function RegistrationForm({ lookups }: IProps) {
         <ApplicantType data={projectOptions} />
         <BusinessInfo data={businessInfoData} />
         <SupportNeeded data={supportOptions} />
-        <SocialPriorities />
+        <SocialPriorities data={prioritiesOptions} />
         <Declaration />
         <Button className='w-full py-4 h-auto rounded-[20px] text-lg font-bold flex gap-3 items-center'>
           <span>تأكيد وإرسال الطلب</span>
