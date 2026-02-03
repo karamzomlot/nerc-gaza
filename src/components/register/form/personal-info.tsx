@@ -8,9 +8,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CircleUserRound } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
-import { RegistrationFormValues } from '.';
+import { LookupRow, RegistrationFormValues } from '.';
 
-export default function PersonalInfo() {
+export default function PersonalInfo({
+  data
+}: {
+  data: {
+    governorateOptions: LookupRow[];
+    areaOptions: LookupRow[];
+    maritalOptions: LookupRow[];
+    healthOptions: LookupRow[];
+    displacementOptions: LookupRow[];
+  };
+}) {
   const { control } = useFormContext<RegistrationFormValues>();
 
   return (
@@ -75,11 +85,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر المحافظة' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='gaza'>غزة</SelectItem>
-                    <SelectItem value='north'>شمال غزة</SelectItem>
-                    <SelectItem value='middle'>الوسطى</SelectItem>
-                    <SelectItem value='khan'>خانيونس</SelectItem>
-                    <SelectItem value='rafah'>رفح</SelectItem>
+                    {data.governorateOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -99,8 +109,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر المنطقة' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='area1'>المنطقة الأولى</SelectItem>
-                    <SelectItem value='area2'>المنطقة الثانية</SelectItem>
+                    {data.areaOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -120,10 +133,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر الحالة الاجتماعية' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='single'>أعزب</SelectItem>
-                    <SelectItem value='married'>متزوج</SelectItem>
-                    <SelectItem value='widowed'>أرمل</SelectItem>
-                    <SelectItem value='divorced'>مطلق</SelectItem>
+                    {data.maritalOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -166,10 +180,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر الحالة الصحية' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='good'>جيدة</SelectItem>
-                    <SelectItem value='average'>متوسطة</SelectItem>
-                    <SelectItem value='chronic_disease'>مرض مزمن</SelectItem>
-                    <SelectItem value='disability'>إعاقة</SelectItem>
+                    {data.healthOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -189,8 +204,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر حالة النزوح' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='displaced'>نازح</SelectItem>
-                    <SelectItem value='not_displaced'>غير نازح</SelectItem>
+                    {data.displacementOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

@@ -69,7 +69,7 @@ export default function RegistrationForm() {
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full max-w-230 mx-auto py-8 space-y-7'>
-        <PersonalInfo />
+        <PersonalInfo data={personalInfoData} />
         <ApplicantType />
         <BusinessInfo />
         <SupportNeeded />
