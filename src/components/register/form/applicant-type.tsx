@@ -20,7 +20,7 @@ export default function ApplicantType({ data }: { data: LookupRow[] }) {
   const { control } = useFormContext<RegistrationFormValues>();
   return (
     <Card className='rounded-[30px] py-10 px-7 shadow-none border-none gap-y-5'>
-      <CardHeader>
+      <CardHeader className='px-0'>
         <CardTitle className='flex items-center gap-2'>
           <Layers className='w-5 h-5 mb-1.5 text-secondary' />
           <h2 className='font-extrabold text-xl'>تصنيف مقدم الطلب</h2>

@@ -18,7 +18,7 @@ export default function SocialPriorities({ data }: { data: LookupRow[] }) {
   const { control } = useFormContext<RegistrationFormValues>();
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 px-7 shadow-none border-none'>
-      <CardHeader>
+      <CardHeader className='px-0'>
         <CardTitle className='flex items-center gap-2 '>
           <Handshake className='w-5 h-5 mb-1.5 text-secondary' />
           <h2 className='font-extrabold text-xl'>الأولويات الاجتماعية</h2>
