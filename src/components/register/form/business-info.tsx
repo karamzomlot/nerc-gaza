@@ -1,7 +1,7 @@
 'use client';
 
 import { Controller, useFormContext } from 'react-hook-form';
-import type { RegistrationFormValues } from '.';
+import type { LookupRow } from '.';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,9 +10,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BriefcaseBusiness } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
+import { FormSchemaValues } from './form.schema';
 
-export default function BusinessInfo() {
-  const { control } = useFormContext<RegistrationFormValues>();
+export default function BusinessInfo({
+  data
+}: {
+  data: {
+    workSectorOptions: LookupRow[];
+    avgSalaryOptions: LookupRow[];
+  };
+}) {
+  const { control } = useFormContext<FormSchemaValues>();
 
   return (
     <Card dir='rtl' className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
@@ -28,8 +36,7 @@ export default function BusinessInfo() {
           {/* اسم النشاط */}
           <Controller
             control={control}
-            name='businessName'
-            rules={{ required: 'اسم النشاط مطلوب' }}
+            name='workName'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>اسم النشاط *</FieldLabel>
@@ -43,7 +50,6 @@ export default function BusinessInfo() {
           <Controller
             control={control}
             name='workSector'
-            rules={{ required: 'قطاع العمل مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>قطاع العمل *</FieldLabel>
@@ -53,10 +59,11 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر القطاع...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='food'>غذائي</SelectItem>
-                    <SelectItem value='crafts'>حرفي</SelectItem>
-                    <SelectItem value='trade'>تجاري</SelectItem>
-                    <SelectItem value='services'>خدماتي</SelectItem>
+                    {data.workSectorOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
 
@@ -68,8 +75,7 @@ export default function BusinessInfo() {
           {/* مكان النشاط الحالي */}
           <Controller
             control={control}
-            name='currentWorkLocation'
-            rules={{ required: 'مكان النشاط الحالي مطلوب' }}
+            name='workArea'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>مكان النشاط الحالي *</FieldLabel>
@@ -82,8 +88,7 @@ export default function BusinessInfo() {
           {/* مدة النشاط */}
           <Controller
             control={control}
-            name='activityDuration'
-            rules={{ required: 'مدة النشاط مطلوبة' }}
+            name='workDuration'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>مدة النشاط *</FieldLabel>
@@ -93,14 +98,9 @@ export default function BusinessInfo() {
             )}
           />
 
-          {/* عدد العاملين */}
           <Controller
             control={control}
-            name='workersCount'
-            rules={{
-              required: 'عدد العاملين مطلوب',
-              validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
-            }}
+            name='workNumberStuff'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>عدد العاملين *</FieldLabel>
@@ -108,7 +108,7 @@ export default function BusinessInfo() {
                   id={field.name}
                   type='number'
                   placeholder='0'
-                  value={field.value === '' ? '' : String(field.value)}
+                  value={field.value}
                   onChange={(e) => field.onChange(e.target.value === '' ? '' : Number(e.target.value))}
                   aria-invalid={fieldState.invalid}
                 />
@@ -120,8 +120,7 @@ export default function BusinessInfo() {
           {/* متوسط الدخل الشهري */}
           <Controller
             control={control}
-            name='avgMonthlyIncome'
-            rules={{ required: 'متوسط الدخل الشهري مطلوب' }}
+            name='workAvgSalary'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>متوسط الدخل الشهري *</FieldLabel>
@@ -131,10 +130,11 @@ export default function BusinessInfo() {
                     <SelectValue placeholder='اختر...' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='no_fixed_income'>لا يوجد دخل ثابت</SelectItem>
-                    <SelectItem value='lt_1000'>أقل من 1000 شيكل</SelectItem>
-                    <SelectItem value='1000_2000'>1000 - 2000 شيكل</SelectItem>
-                    <SelectItem value='gt_2000'>أكثر من 2000 شيكل</SelectItem>
+                    {data.avgSalaryOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
 
@@ -147,8 +147,7 @@ export default function BusinessInfo() {
           <div className='md:col-span-3'>
             <Controller
               control={control}
-              name='activityDescription'
-              rules={{ required: 'وصف النشاط مطلوب' }}
+              name='workDescription'
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
                   <FieldLabel htmlFor={field.name}>وصف النشاط والوضع الحالي *</FieldLabel>

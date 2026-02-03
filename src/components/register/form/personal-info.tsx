@@ -8,10 +8,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { CircleUserRound } from 'lucide-react';
 
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field';
-import { RegistrationFormValues } from '.';
+import { LookupRow } from '.';
+import { FormSchemaValues } from './form.schema';
 
-export default function PersonalInfo() {
-  const { control } = useFormContext<RegistrationFormValues>();
+export default function PersonalInfo({
+  data
+}: {
+  data: {
+    governorateOptions: LookupRow[];
+    areaOptions: LookupRow[];
+    maritalOptions: LookupRow[];
+    healthOptions: LookupRow[];
+    displacementOptions: LookupRow[];
+  };
+}) {
+  const { control } = useFormContext<FormSchemaValues>();
 
   return (
     <Card className='rounded-[30px] py-10 shadow-none border-none gap-y-5'>
@@ -27,7 +38,6 @@ export default function PersonalInfo() {
           <Controller
             control={control}
             name='fullName'
-            rules={{ required: 'الاسم مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>الاسم الكامل *</FieldLabel>
@@ -40,11 +50,10 @@ export default function PersonalInfo() {
           <Controller
             control={control}
             name='idNumber'
-            rules={{ required: 'رقم الهوية مطلوب' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>رقم الهوية *</FieldLabel>
-                <Input {...field} id={field.name} inputMode='numeric' placeholder='رقم الهوية' aria-invalid={fieldState.invalid} />
+                <Input {...field} id={field.name} inputMode='numeric' placeholder='رقم الهوية' aria-invalid={fieldState.invalid} autoComplete='international-number' />
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </Field>
             )}
@@ -52,8 +61,7 @@ export default function PersonalInfo() {
 
           <Controller
             control={control}
-            name='mobile'
-            rules={{ required: 'رقم الجوال مطلوب' }}
+            name='phone1'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>رقم الجوال *</FieldLabel>
@@ -66,7 +74,6 @@ export default function PersonalInfo() {
           <Controller
             control={control}
             name='governorate'
-            rules={{ required: 'المحافظة مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>المحافظة *</FieldLabel>
@@ -75,11 +82,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر المحافظة' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='gaza'>غزة</SelectItem>
-                    <SelectItem value='north'>شمال غزة</SelectItem>
-                    <SelectItem value='middle'>الوسطى</SelectItem>
-                    <SelectItem value='khan'>خانيونس</SelectItem>
-                    <SelectItem value='rafah'>رفح</SelectItem>
+                    {data.governorateOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -90,7 +97,6 @@ export default function PersonalInfo() {
           <Controller
             control={control}
             name='area'
-            rules={{ required: 'المنطقة مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>المنطقة *</FieldLabel>
@@ -99,8 +105,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر المنطقة' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='area1'>المنطقة الأولى</SelectItem>
-                    <SelectItem value='area2'>المنطقة الثانية</SelectItem>
+                    {data.areaOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -110,8 +119,7 @@ export default function PersonalInfo() {
 
           <Controller
             control={control}
-            name='socialStatus'
-            rules={{ required: 'الحالة الاجتماعية مطلوبة' }}
+            name='maritalStatus'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>الحالة الاجتماعية *</FieldLabel>
@@ -120,10 +128,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر الحالة الاجتماعية' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='single'>أعزب</SelectItem>
-                    <SelectItem value='married'>متزوج</SelectItem>
-                    <SelectItem value='widowed'>أرمل</SelectItem>
-                    <SelectItem value='divorced'>مطلق</SelectItem>
+                    {data.maritalOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -133,11 +142,7 @@ export default function PersonalInfo() {
 
           <Controller
             control={control}
-            name='familyCount'
-            rules={{
-              required: 'عدد أفراد الأسرة مطلوب',
-              validate: (v) => (v === '' || v < 0 ? 'أدخل رقم صحيح' : true)
-            }}
+            name='familyMembers'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel htmlFor={field.name}>عدد أفراد الأسرة *</FieldLabel>
@@ -145,7 +150,7 @@ export default function PersonalInfo() {
                   id={field.name}
                   type='number'
                   placeholder='عدد أفراد الأسرة'
-                  value={field.value === '' ? '' : String(field.value)}
+                  value={field.value}
                   onChange={(e) => field.onChange(e.target.value === '' ? '' : Number(e.target.value))}
                   aria-invalid={fieldState.invalid}
                 />
@@ -157,7 +162,6 @@ export default function PersonalInfo() {
           <Controller
             control={control}
             name='healthStatus'
-            rules={{ required: 'الحالة الصحية مطلوبة' }}
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>الحالة الصحية *</FieldLabel>
@@ -166,10 +170,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر الحالة الصحية' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='good'>جيدة</SelectItem>
-                    <SelectItem value='average'>متوسطة</SelectItem>
-                    <SelectItem value='chronic_disease'>مرض مزمن</SelectItem>
-                    <SelectItem value='disability'>إعاقة</SelectItem>
+                    {data.healthOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -179,8 +184,7 @@ export default function PersonalInfo() {
 
           <Controller
             control={control}
-            name='displacementStatus'
-            rules={{ required: 'حالة النزوح مطلوبة' }}
+            name='displacementSituation'
             render={({ field, fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
                 <FieldLabel>حالة النزوح *</FieldLabel>
@@ -189,8 +193,11 @@ export default function PersonalInfo() {
                     <SelectValue placeholder='اختر حالة النزوح' />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value='displaced'>نازح</SelectItem>
-                    <SelectItem value='not_displaced'>غير نازح</SelectItem>
+                    {data.displacementOptions.map((o) => (
+                      <SelectItem value={o.value.toString()} key={o.value}>
+                        {o.description}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}

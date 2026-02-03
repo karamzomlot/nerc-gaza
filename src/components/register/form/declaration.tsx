@@ -4,15 +4,15 @@ import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Controller, useFormContext } from 'react-hook-form';
-import type { RegistrationFormValues } from '.';
 import { FileSignature } from 'lucide-react';
+import { FormSchemaValues } from './form.schema';
 
 export default function Declaration() {
-  const { control } = useFormContext<RegistrationFormValues>();
+  const { control } = useFormContext<FormSchemaValues>();
 
   return (
     <Card className='rounded-[30px] py-8 px-7 shadow-none border-none bg-white'>
-      <CardHeader>
+      <CardHeader className='px-0'>
         <CardTitle className='flex items-center gap-2'>
           <FileSignature className='w-5 h-5 text-secondary' />
           <h2 className='font-extrabold text-xl text-slate-900'>الإقرار</h2>
@@ -21,14 +21,12 @@ export default function Declaration() {
 
       <Controller
         control={control}
-        name='declaration'
-        rules={{ required: 'يجب الموافقة على الإقرار' }}
+        name='isDeclarationApproved'
         render={({ field, fieldState }) => {
           const checked = !!field.value;
 
           return (
             <>
-              {/* المربع الأصفر clickable بالكامل */}
               <label
                 htmlFor='declaration-checkbox'
                 className={cn(
